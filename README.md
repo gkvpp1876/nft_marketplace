@@ -24,6 +24,6 @@ Initialization
 
 Solidity Code
 14. npx hardhat - To setup hardhat for solidity development environment
-15. Setting up polygon RPC public or pricate networks, we're using polygon mumbai test network
+15. Setting up polygon RPC public or private networks, we're using polygon mumbai test network
     a. Reference to get test network on metamask and tokens from faucet https://blog.pods.finance/guide-connecting-mumbai-testnet-to-your-metamask-87978071aca8 - waiting for the tokens to get reflected in the wallet
 16. 
