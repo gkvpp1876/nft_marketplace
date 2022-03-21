@@ -41,11 +41,13 @@ contract NFTMarket is ERC721URIStorage {
         return listingPrice;
     }
 
+    /* Updates the listing price of the contract */
     function updateListingPrice(uint _listingPrice) public payable {
-        require(owner == msg.sender, "Onlu marketplace owner can update the listing price");
+        require(owner == msg.sender, "Only marketplace owner can update the listing price");
         listingPrice = _listingPrice;
     }
 
+    /** Mints a token and lists it in the marketplace */
     function createToken(string memory tokenURI, uint256 price) public payable returns (uint){
         _tokenIds.increment(); //increments or create new token Id when new NFT is minted
         uint256 newTokenId = _tokenIds.current(); //getting the current token ID
@@ -92,7 +94,8 @@ contract NFTMarket is ERC721URIStorage {
     }
 
     /*
-
+    Creates the sale of a marketplace item
+    Transfers ownership of the item, as well as funds between parties
     */
     function createMarketSale(uint256 tokenId)
         public
@@ -116,7 +119,7 @@ contract NFTMarket is ERC721URIStorage {
     }
 
     /*
-    Ideally resellToken is selling back the token to the nftmarket contract
+    Ideally resell Token is selling back the token to the nftmarket contract
      */
     function resellToken(uint256 tokenId, uint256 price)
         public
@@ -139,7 +142,7 @@ contract NFTMarket is ERC721URIStorage {
     }
 
     /*
-
+    Returns all unsold market items
     memory: is like Computer RAM, data will be wiped off after the execution
     */
     function fetchMarketItems() public view returns (MarketItem[] memory) {
@@ -159,6 +162,7 @@ contract NFTMarket is ERC721URIStorage {
         return items;
     }
 
+    /**Returns only items that a user has purchased */
     //getting the tokens purchased by the user
     function fetchMyNFTs() public view returns (MarketItem[] memory) {
         uint totalItemCount = _tokenIds.current();
@@ -180,7 +184,8 @@ contract NFTMarket is ERC721URIStorage {
         return items;
     }
 
-    function fetchItemsCreated() public view returns (MarketItem[] memory) {
+    /**Returns only items a user has listed */
+    function fetchItemsListed() public view returns (MarketItem[] memory) {
         uint totalItemCount = _tokenIds.current();
         uint itemCount = 0;
         uint currentIndex = 0;

@@ -4,9 +4,7 @@ const { renderToHTML } = require("next/dist/server/render");
 
 describe("NFTMarket", function () {
   var market;
-  var nft;
   var marketInstance;
-  var nftInstance;
   var listingPrice = 250000000000000000;
   var auctionPrice;
 
