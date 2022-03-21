@@ -66,7 +66,7 @@ contract NFTMarket is ERC721URIStorage {
     function createMarketItem(
         uint256 tokenId,
         uint256 price
-    ) public payable {
+    ) private {
         require(price > 0, "Price must be at least 1 wei");
         require(
             msg.value == listingPrice,
