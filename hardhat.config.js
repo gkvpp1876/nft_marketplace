@@ -11,10 +11,10 @@ module.exports = {
       url: "https://rpc-mumbai.maticvigil.com/",
       accounts: [privateKey]
     },
-    mainnet:{
-      url:"https://rpc-mumbai.maticvigil.com/",
-      accounts: [privateKey]
-    }
+    // mainnet:{
+    //   url:"https://rpc-mumbai.maticvigil.com/",
+    //   accounts: [privateKey]
+    // }
   },
   solidity: {
     version: "0.8.4",
